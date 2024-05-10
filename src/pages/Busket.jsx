@@ -13,6 +13,7 @@ import { default as Btn } from "../components/Button";
 import AlsoBuy from "../components/Also-buy";
 import { useCart } from "react-use-cart";
 import { ProductItem } from "./ProductItem";
+import { Helmet } from "react-helmet";
 
 const Bag = () => {
     const { isEmpty, items, updateItemQuantity, removeItem, cartTotal } = useCart()
@@ -49,7 +50,13 @@ const Bag = () => {
 
                     <Row className={`Shopping-bag__row`} justify={"space-between"}>
                         <Col span={13} className={`Shopping-bag--bag`}>
-                            {productItem}
+                            {
+                                isEmpty ?
+                                    <Title level={"h3"} >
+                                        Bag is empty
+                                    </Title>
+                                    : productItem
+                            }
                         </Col>
 
                         <Col span={10} className={`Shopping-bag__order`}>
@@ -81,7 +88,7 @@ const Bag = () => {
                                                 Order value
                                             </Title>
                                             <Title bodyText={"p"}>
-                                                {cartTotal} $
+                                                {cartTotal}$
                                             </Title>
                                         </Flex>
                                     </li>
@@ -103,7 +110,7 @@ const Bag = () => {
                                                 Total
                                             </Title>
                                             <Title bodyText={"p"}>
-                                                {Shipping} $
+                                                {Shipping}$
                                             </Title>
                                         </Flex>
                                     </li>

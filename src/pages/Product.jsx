@@ -96,6 +96,9 @@ const Product = () => {
     if (state.isParams)
         return (
             <Fragment>
+                <Helmet>
+                    <title>Moody - {state?.data.title}</title>
+                </Helmet>
                 <Breadcrumb current={state?.data.title} />
 
                 <section className="Product">
